@@ -1,0 +1,28 @@
+<template name="EstateList">
+  <h1>Locataires</h1>
+  {{#each locataires}}
+    <div class="row">
+      <div class="col-md-2">
+        <div class="panel panel-default">
+          <div class="panel-heading">{{name}}</div>
+          <div class="panel-body">
+            <p>{{address}}</p>
+            <p>{{phone}}</p>
+            <p>{{rent}}</p>
+          </div>
+        </div>
+      </div>
+      {{#each months}}
+      <div class="col-md-2">
+        <div class="panel panel-{{monthStatus}}">
+          <div class="panel-heading">{{.}}</div>
+          <div class="panel-body">
+            TODO
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  {{/each}}
+  {{> EstateAdd}}
+</template>

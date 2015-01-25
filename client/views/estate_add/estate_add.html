@@ -1,0 +1,55 @@
+<template name="EstateAdd">
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addModal">
+    Ajouter un locataire
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Ajouter un locataire</h4>
+        </div>
+          <form id="add-form" class="test">
+        <div class="modal-body">
+            <div class="form-group">
+              <label for="add-name">Locataire*</label>
+              <div class="input-group input-group-lg">
+              <input type="text" class="form-control" id="add-name" placeholder="Nom du locataire">
+            </div>
+            </div>
+            <div class="form-group">
+              <label for="add-address">Nom de l'appartement</label>
+              <input type="text" class="form-control" id="add-address" placeholder="Ou son adresse">
+            </div>
+            <div class="form-group">
+              <label for="add-phone">Téléphone</label>
+              <input type="text" class="form-control" id="add-phone" placeholder="Ou autre moyen de contact">
+            </div>
+            <div class="form-group">
+              <label for="add-rent">Loyer*</label>
+              <div class="input-group input-group-lg">
+                <input type="text" class="form-control" id="add-rent" placeholder="Montant du loyer">
+                <span class="input-group-addon">€</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="add-start">Mois debut de gestion*</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="add-start" placeholder="AAAA-MM">
+              </div>
+            </div>
+
+          *champ obligatoire
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+          <button type="submit" class="btn btn-primary" id="add-submit">Ajouter</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</template>
