@@ -1,0 +1,17 @@
+<template name="LocataireShow">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="panel panel-default">
+        <div class="panel-heading">{{name}}</div>
+        <div class="panel-body">
+          <p>{{address}}</p>
+          <p>{{phone}}</p>
+          <p>{{rent}}</p>
+        </div>
+      </div>
+    </div>
+    {{#each months}}
+      {{> MonthShow}}
+    {{/each}}
+  </div>
+</template>
