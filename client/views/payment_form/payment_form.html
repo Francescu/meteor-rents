@@ -1,3 +1,51 @@
 <template name="PaymentForm">
-  client/views/payment_form/payment_form.html
+  <div class="modal fade" id="paymentFormModal" tabindex="-1" role="dialog" aria-labelledby="paymentFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close payment-reset" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="paymentFormModalLabel">Ajouter un paiement</h4>
+        </div>
+        <form id="payment-form">
+          <div class="modal-body">
+                <input type="hidden" class="form-control" id="payment-locataire">
+
+            <div class="form-group">
+              <label for="payment-type">Type de paiement*</label><br />
+              {{#each payment_types}}
+              <label class="radio-inline">
+                <input type="radio" name="payment-type" id="payment-type-{{value}}" value="{{value}}"><i class="{{icon}}"></i> {{value}}
+              </label>
+              {{/each}}
+
+            </div>
+            <div class="form-group">
+              <label for="payment-amount">Montant*</label>
+              <div class="input-group input-group-lg">
+                <input type="text" class="form-control" id="payment-amount" placeholder="Montant du loyer">
+                <span class="input-group-addon">€</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="payment-month">Mois concerné par le paiment*</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="payment-month" placeholder="AAAA-MM">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="payment-notes">Notes pour plus tard sur le paiement</label>
+              <input type="text" class="form-control" id="payment-notes" placeholder="Numero cheque, contexte particulier etc.">
+            </div>
+            *champ obligatoire
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default payment-reset" data-dismiss="modal">Annuler</button>
+            <button type="submit" class="btn btn-primary" id="payment-submit">Ajouter</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </template>

@@ -1,5 +1,9 @@
 # MonthShow: Event Handlers and Helpers
 Template.MonthShow.events
+  "click .payment-add-btn": (event, template) ->
+    console.log template
+    data = template.data
+    Template.PaymentForm.show(data.locataire._id, data.month, 0)
 # Example:
 #  "click .selector": (e, tmpl) ->
 #
@@ -17,6 +21,13 @@ Template.MonthShow.helpers
   message: ->
     if @status == "before_start"
       "Non applicable (mois non-géré)"
+
+  canAddPayment: ->
+    if @status == "before_start"
+      return false
+    #if PAYMENT COMPLETED
+      #false
+    true
 # Example:
 #   items: ->
 #

@@ -1,9 +1,17 @@
 <template name="MonthShow">
   <div class="col-md-2">
     <div class="panel panel-{{panel_class}}">
-      <div class="panel-heading">{{month}}</div>
+      <div class="panel-heading">
+
+        {{month}}
+        </div>
       <div class="panel-body">
         {{ message }}
+        {{#if canAddPayment}}
+        <button type="button" class="btn btn-success btn-block payment-add-btn">
+          <i class="fa fa-money"></i>
+        </button>
+        {{/if}}
       </div>
     </div>
   </div>
