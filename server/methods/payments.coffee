@@ -7,7 +7,7 @@ Meteor.methods
     #TODO: better payment check
     check payment, Object
     check @userId, String
-    document = _.pick payment, ["locataire_id", "month", "amount", "method", "notes"]
+    document = _.pick payment, ["locataire_id", "month", "amount", "type", "notes"]
     document.user_id = @user_id
     document.created_at = new Date()
 
