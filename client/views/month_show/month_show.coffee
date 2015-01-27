@@ -6,18 +6,21 @@ Template.MonthShow.events
 
 Template.MonthShow.helpers
   monthStatus: ->
-    #TODO: put in another template and actual values
+    #TODO: get payments to set values here
     #http://getbootstrap.com/components/#panels-alternatives
 
     current = moment App.Constants.Current, "YYYY-MM"
-    self = moment @.month, "YYYY-MM"
+    month = moment @.month, "YYYY-MM"
 
-    if self.isSame(current, 'month')
+    if month.isBefore(moment(@locataire.start, "YYYY-MM"))
+      return "default"
+    else if month.isSame(current, 'month')
       return "primary"
-    else if self.isBefore(current, 'month')
+    else if month.isBefore(current, 'month')
       #Past month
       return "danger"
-    "success"
+    # "success"
+    "default"
 # Example:
 #   items: ->
 #
