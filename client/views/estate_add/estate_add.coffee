@@ -1,6 +1,9 @@
 # EstateAdd: Event Handlers and Helpers
 Template.EstateAdd.events
-  "submit form": (event, tmpl) ->
+  "click .add-reset": ->
+    Template.EstateAdd.resetForm()
+
+  "submit #add-form": (event, tmpl) ->
     event.preventDefault()
     loc =
       name: $.trim($("#add-name").val())
@@ -20,6 +23,7 @@ Template.EstateAdd.events
       alert("Il faut entrer une date de depart valide")
       return false
     Locataires.insert(loc)
+    Template.EstateAdd.resetForm()
     $("#addModal").modal('hide')
     false
 # Example:
@@ -31,6 +35,8 @@ Template.EstateAdd.helpers
 #   items: ->
 #
 
+Template.EstateAdd.resetForm = ->
+  $('#add-form').each -> @reset()
 # EstateAdd: Lifecycle Hooks
 Template.EstateAdd.created = ->
 
