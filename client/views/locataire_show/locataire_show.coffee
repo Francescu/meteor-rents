@@ -19,6 +19,8 @@ Template.LocataireShow.helpers
       # "success"
       "future"
 
+    pays = (m, locataire_id) ->
+      return Payments
     _.map App.months.get(), (m) =>
       month:m
       locataire:@
