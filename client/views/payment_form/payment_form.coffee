@@ -1,5 +1,16 @@
 # PaymentForm: Event Handlers and Helpers
 Template.PaymentForm.events
+  "submit #payment-form": ->
+    event.preventDefault()
+    payment =
+      type: $('#payment-form input[name=payment-type]:checked').val()
+      locataire_id: $.trim($("#payment-locataire").val())
+      notes: $.trim($("#payment-notes").val())
+      amount: parseFloat($("#payment-amount").val())
+      month: $("#payment-month").val()
+
+    console.log payment
+    false
 # Example:
 #  "click .selector": (e, tmpl) ->
 #

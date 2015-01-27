@@ -1,7 +1,6 @@
 # MonthShow: Event Handlers and Helpers
 Template.MonthShow.events
   "click .payment-add-btn": (event, template) ->
-    console.log template
     data = template.data
     Template.PaymentForm.show(data.locataire._id, data.month, 0)
 # Example:
