@@ -5,22 +5,18 @@ Template.MonthShow.events
 #
 
 Template.MonthShow.helpers
-  monthStatus: ->
-    #TODO: get payments to set values here
-    #http://getbootstrap.com/components/#panels-alternatives
+  panel_class: ->
+    #TODO: depends on payments
+    switch @status
+      when "before_start" then "default"
+      when "past" then "danger"
+      when "current" then "primary"
+      when "future" then "default"
+      else "default" #success for green
 
-    current = moment App.Constants.Current, "YYYY-MM"
-    month = moment @.month, "YYYY-MM"
-
-    if month.isBefore(moment(@locataire.start, "YYYY-MM"))
-      return "default"
-    else if month.isSame(current, 'month')
-      return "primary"
-    else if month.isBefore(current, 'month')
-      #Past month
-      return "danger"
-    # "success"
-    "default"
+  message: ->
+    if @status == "before_start"
+      "Non applicable (mois non-géré)"
 # Example:
 #   items: ->
 #
